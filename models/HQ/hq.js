@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //create CG schema and model
-const CGSchema = new Schema({
+const HQSchema = new Schema({
     name: {
         type: String,
         required: [true, 'Name field is required']
@@ -21,5 +21,5 @@ const CGSchema = new Schema({
     }
 });
 
-const CG = mongoose.model('cg', CGSchema);
-module.exports = CG;
+const HQ = mongoose.model('cg', HQSchema);
+module.exports = HQ;
