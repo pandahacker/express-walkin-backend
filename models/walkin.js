@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //create CG schema and model
-const HQSchema = new Schema({
+const WalkInSchema = new Schema({
     name: {
         type: String,
         required: [true, 'Name field is required']
@@ -16,10 +16,16 @@ const HQSchema = new Schema({
     time: {
         type: String
     },
+    claimedBy: {
+        type: String
+    },
     claimed: {
+        type: Boolean
+    },
+    office: {
         type: String
     }
 });
 
-const HQ = mongoose.model('cg', HQSchema);
-module.exports = HQ;
+const WalkIn = mongoose.model('walkins', WalkInSchema);
+module.exports = WalkIn;

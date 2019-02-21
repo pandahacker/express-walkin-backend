@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const WalkIn = require('./models/walkin')
 
 
 //get people that have signed into the front desk
@@ -10,7 +11,9 @@ router.get('/signedin', function(req, res){
 
 //add a new member into the queue
 router.post('/register', function (req, res) {
-    res.send({ type: 'POST' });
+    WalkIn.create(req.body).then(function(walkins){
+        res.send(walkins);
+    })
 });
 
 //modify existing walk in

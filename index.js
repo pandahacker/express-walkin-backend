@@ -7,6 +7,9 @@ const app = express();
 
 //connect to mongoDB
 mongoose.connect('mongodb://172.17.0.3/walkIns');
+mongoose.Promise = global.Promise;
+
+
 
 app.use(bodyParser.json());
 //initialize routes
