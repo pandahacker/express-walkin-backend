@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 //connect to mongoDB
-mongoose.connect('mongodb://172.17.0.3/walkIns');
+mongoose.connect('mongodb://localhost/walkIns');
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.json());

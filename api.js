@@ -5,7 +5,9 @@ const WalkIn = require('./models/walkin')
 
 //get people that have signed into the front desk
 router.get('/signedin', function (req, res, next){
-    console.log(req.body);
+    WalkIn.find({ claimed: false }).then(function(walkins){
+        res.send(walkins);
+    }).catch(next);
 });
 
 //add a new member into the queue
