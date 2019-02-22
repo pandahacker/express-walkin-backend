@@ -17,10 +17,12 @@ const WalkInSchema = new Schema({
         type: String
     },
     claimedBy: {
-        type: String
+        type: String,
+        default: ""
     },
     claimed: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     office: {
         type: String
