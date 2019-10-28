@@ -20,10 +20,18 @@ router.get('/signedin', function (req, res, next){
     
 });
 router.get('/reporting', function (req, res, next) {
-    WalkIn.find({claimed: true }).then(function (walkins) {
-        console.log(`retreiving past walk ins`);
-        res.send(walkins);
-    }).catch(next);
+    if (req.query.loc == undefined) {
+        WalkIn.find({ claimed: true }).then(function (walkins) {
+            console.log(`retreiving past walk ins`);
+            res.send(walkins);
+        }).catch(next);
+    }
+    else {
+        WalkIn.find({ office: req.query.loc, claimed: true }).then(function (walkins) {
+            console.log(`retreiving report from sign ins from ${req.query.loc}`);
+            res.send(walkins);
+        }).catch(next);
+    }
 });
 
 //add a new member into the queue
